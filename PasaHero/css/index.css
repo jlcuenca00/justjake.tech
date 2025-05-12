@@ -289,6 +289,10 @@
             background-color: var(--light-gray);
             max-height: 600px;   
         }
+
+        .carousel-indicators{
+            display: none;
+        }
         
         .testimonial-item {
             background-color: var(--secondary);

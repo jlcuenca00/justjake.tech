@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='32' height='32'><rect width='100' height='100' rx='15' fill='%230d1117'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Poppins, sans-serif' font-size='70' font-weight='600' fill='%231abc9c'>J</text></svg>">
   <title>Just Jake | Tech & Beyond</title>
   <style>
     body {
@@ -10,45 +12,143 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #0d1117;
       color: #f0f6fc;
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
     }
     header {
       background-color: #161b22;
-      padding: 20px;
+      padding: 25px 20px;
       text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     header h1 {
       margin: 0;
       font-size: 2.5em;
-      color: #58a6ff;
+      color: #1abc9c; /* Accent color */
+      font-weight: 700;
     }
-    nav a {
-      color: #c9d1d9;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #58a6ff;
-    }
+    /* nav a styles are now consolidated below with the transition property */
     .hero {
       text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #1f2937, #0d1117);
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #16222A, #1abc9c); /* Enhanced gradient */
     }
     .hero h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
+      font-size: 2.5em; /* Slightly larger for impact */
+      margin-bottom: 15px; /* More space */
+      font-weight: 700; /* Bolder */
     }
     .hero p {
-      font-size: 1.1em;
-      color: #8b949e;
+      font-size: 1.3em; /* Slightly larger */
+      color: #f0f6fc; /* Brighter for main message */
+      max-width: 600px; /* Constrain width for better readability */
+      margin: 0 auto 20px auto; /* Center if needed */
     }
     section {
-      padding: 50px 20px;
+      padding: 60px 20px;
       max-width: 800px;
       margin: auto;
     }
+    /* Animation classes */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Styling for navigation links, including hover and transition */
+    nav a {
+      color: #c9d1d9;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #1abc9c; /* Accent color */
+    }
+    /* Styling for contact link */
+    #contact a {
+      color: #1abc9c; /* From original inline style */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    #contact a:hover {
+      color: #2ceec0; /* Lighter accent for hover */
+    }
+
+    /* Project Card Styling */
+    #projects > p { /* Targeting the direct paragraph child of #projects, the "Coming Soon" message */
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 1.1em;
+        color: #c9d1d9;
+    }
+    .project-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px; /* Increased gap */
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .project-card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 25px; /* Increased padding */
+      width: calc(50% - 55px); /* Adjusted for increased gap and padding */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+    }
+    .project-image-placeholder {
+      width: 100%;
+      height: 180px; /* Increased height */
+      background-color: #21262d; /* Slightly lighter placeholder */
+      border-radius: 6px;
+      margin-bottom: 20px; /* Increased margin */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8b949e;
+      font-size: 1em; /* Larger text */
+    }
+    .project-image-placeholder::after {
+      content: "Project Visual"; /* Updated text */
+    }
+    .project-card h3 {
+      color: #1abc9c;
+      margin-top: 0;
+      margin-bottom: 12px; /* Adjusted margin */
+      font-size: 1.6em; /* Larger title */
+    }
+    .project-card p {
+      font-size: 1em; /* Standardized size */
+      color: #c9d1d9;
+      line-height: 1.6; /* Improved line height */
+    }
+
+    /* Responsive adjustments for project cards */
+    @media (max-width: 768px) {
+      .project-card {
+        width: calc(100% - 50px); /* Full width on smaller screens, adjusted padding */
+      }
+      .hero h2 {
+        font-size: 2.2em; /* Adjust hero title for mobile */
+      }
+      .hero p {
+        font-size: 1.2em; /* Adjust hero subtitle for mobile */
+      }
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -70,8 +170,8 @@
   </header>
 
   <section class="hero">
-    <h2>Welcome to my world</h2>
-    <p>Building, breaking, and rebooting tech with style.</p>
+    <h2>Hi, I'm Jake.</h2>
+    <p>A Full-Stack Developer passionate about creating innovative and user-friendly web experiences.</p>
   </section>
 
   <section id="about">
@@ -81,17 +181,87 @@
 
   <section id="projects">
     <h2>Projects</h2>
-    <p>Coming soon: tools, experiments, and things I’m proud of.</p>
+    <p>Stay tuned! Exciting tools, experiments, and showcases of my work are on their way.</p>
+    <div class="project-cards-container">
+      <div class="project-card">
+        <div class="project-image-placeholder"></div>
+        <h3>Project Alpha</h3>
+        <p>A brief description of Project Alpha, highlighting key technologies and its purpose.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-image-placeholder"></div>
+        <h3>Project Beta</h3>
+        <p>A brief description of Project Beta, showcasing different skills and challenges overcome.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-image-placeholder"></div>
+        <h3>Project Gamma</h3>
+        <p>Exploring new horizons with Project Gamma, focusing on cutting-edge tech stacks.</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Let’s connect! You can reach me at <a href="mailto:hello@justjake.tech" style="color:#58a6ff;">hello@justjake.tech</a>.</p>
+    <p>Let’s connect! You can reach me at <a href="mailto:hello@justjake.tech">hello@justjake.tech</a>.</p>
   </section>
 
   <footer>
     &copy; 2025 justjake.tech — All rights reserved.
   </footer>
 
+<script>
+  // Smooth Scrolling
+  document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Fade-in Animation on Scroll
+  const sectionsToFade = document.querySelectorAll('section'); // Targets .hero, #about, #projects, #contact
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1 // Triggers when 10% of the element is visible
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const sectionObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+  sectionsToFade.forEach(section => {
+    section.classList.add('fade-in-section'); // Add base class for initial state
+    // The .hero section is handled by the next block to ensure it's visible on load
+    if (!section.classList.contains('hero')) {
+        sectionObserver.observe(section);
+    }
+  });
+
+  // Handle .hero section fade-in on page load
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    // heroSection.classList.add('fade-in-section'); // Already added by the loop above
+    // Ensure CSS transition applies by adding 'visible' after a very short delay
+    setTimeout(() => {
+      heroSection.classList.add('visible');
+    }, 100);
+  }
+</script>
 </body>
 </html>
